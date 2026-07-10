@@ -1,20 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-    --bg: #f8fafc;
-    --card: #ffffff;
-    --primary: #2563eb;
-    --primary-hover: #1d4ed8;
-    --primary-soft: #dbeafe;
-    --danger: #ef4444;
-    --danger-hover: #dc2626;
-    --success-soft: #dcfce7;
-    --success-text: #166534;
-    --text: #111827;
-    --muted: #6b7280;
-    --border: #e5e7eb;
-    --input: #d1d5db;
-    --radius: 8px;
+    --bg: #f6f1ea;
+    --surface: #fffaf2;
+    --surface-strong: #ffffff;
+    --ink: #26201b;
+    --muted: #766b61;
+    --line: #e6d9c9;
+    --field: #d8c8b8;
+    --primary: #8f4f2a;
+    --primary-hover: #733f22;
+    --primary-soft: #f4dfcf;
+    --accent: #236b63;
+    --accent-soft: #dbeeea;
+    --danger: #c94435;
+    --danger-hover: #a93328;
+    --success-soft: #e2f4df;
+    --success-text: #2f6c32;
+    --radius: 10px;
 }
 
 * {
@@ -23,56 +26,80 @@
     padding: 0;
 }
 
+html,
+body {
+    min-height: 100%;
+}
+
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     background: var(--bg);
-    color: var(--text);
+    color: var(--ink);
     font-family: 'Inter', Arial, sans-serif;
 }
 
 .panel {
-    background: var(--card);
-    border: 1px solid var(--border);
+    background: var(--surface-strong);
+    border: 1px solid var(--line);
     border-radius: var(--radius);
 }
 
 .auth-wrapper {
-    flex: 1;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(320px, 1fr) minmax(380px, 520px);
+    background: var(--bg);
+}
+
+.auth-wrapper::before {
+    content: "TaskFlow\A\ATheo dõi công việc cá nhân, hạn hoàn thành và mức ưu tiên trong một không gian làm việc gọn gàng.";
+    white-space: pre-line;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 24px;
+    padding: 8vw;
+    background: var(--accent);
+    color: #fff7ed;
+    font-size: clamp(30px, 4vw, 62px);
+    font-weight: 800;
+    line-height: 1.08;
 }
 
 .auth-card {
     width: 100%;
     max-width: 430px;
-    padding: 30px;
+    align-self: center;
+    justify-self: center;
+    margin: 32px;
+    padding: 34px;
+    background: var(--surface-strong);
+    border: 1px solid var(--line);
+    border-radius: 18px;
 }
 
 .auth-header {
     margin-bottom: 24px;
-    text-align: center;
 }
 
 .brand-pill {
-    display: inline-block;
-    margin-bottom: 10px;
-    padding: 4px 12px;
+    display: inline-flex;
+    margin-bottom: 14px;
+    padding: 6px 10px;
     border-radius: 999px;
     background: var(--primary-soft);
     color: var(--primary);
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 .auth-header h1,
 .page-title h1 {
-    color: var(--text);
-    font-size: 26px;
-    line-height: 1.2;
+    color: var(--ink);
+    font-size: 30px;
+    line-height: 1.16;
 }
 
 .auth-header p,
@@ -84,25 +111,25 @@ body {
 
 .auth-header p,
 .page-title p {
-    margin-top: 6px;
+    margin-top: 8px;
     font-size: 14px;
 }
 
 .alert {
     margin-bottom: 18px;
     padding: 12px 14px;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 14px;
 }
 
 .alert-danger {
-    border: 1px solid #fecdd3;
-    background: #fff1f2;
-    color: #9f1239;
+    border: 1px solid #efb3aa;
+    background: #fff0ed;
+    color: #9a2e23;
 }
 
 .alert-success {
-    border: 1px solid #bbf7d0;
+    border: 1px solid #b8ddb5;
     background: var(--success-soft);
     color: var(--success-text);
 }
@@ -119,19 +146,20 @@ body {
 
 .form-label {
     display: block;
-    margin-bottom: 6px;
-    color: var(--text);
+    margin-bottom: 7px;
+    color: var(--ink);
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .form-control {
     width: 100%;
-    padding: 10px 12px;
-    border: 1px solid var(--input);
-    border-radius: 6px;
-    background: #ffffff;
-    color: var(--text);
+    min-height: 44px;
+    padding: 11px 12px;
+    border: 1px solid var(--field);
+    border-radius: 8px;
+    background: #fffdf8;
+    color: var(--ink);
     font: inherit;
     font-size: 14px;
     outline: none;
@@ -139,10 +167,11 @@ body {
 
 .form-control:focus {
     border-color: var(--primary);
+    background: #ffffff;
 }
 
 .form-textarea {
-    min-height: 96px;
+    min-height: 118px;
     resize: vertical;
 }
 
@@ -151,14 +180,14 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
+    min-height: 42px;
     padding: 10px 18px;
     border: none;
-    border-radius: 6px;
-    color: inherit;
+    border-radius: 999px;
     cursor: pointer;
     font: inherit;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 800;
     text-decoration: none;
 }
 
@@ -172,13 +201,14 @@ body {
 }
 
 .btn-secondary {
-    border: 1px solid var(--input);
-    background: #ffffff;
-    color: var(--text);
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
 }
 
 .btn-secondary:hover {
-    background: #f3f4f6;
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 .btn-danger {
@@ -192,91 +222,122 @@ body {
 
 .btn-sm {
     width: auto;
-    padding: 7px 12px;
+    min-height: 34px;
+    padding: 7px 13px;
     font-size: 12px;
 }
 
 .auth-footer {
-    margin-top: 18px;
-    text-align: center;
+    margin-top: 20px;
     color: var(--muted);
     font-size: 14px;
 }
 
 .auth-footer a {
     color: var(--primary);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 5%;
-    border-bottom: 1px solid var(--border);
-    background: #ffffff;
-}
-
-.logo {
-    color: var(--primary);
-    font-size: 20px;
     font-weight: 800;
     text-decoration: none;
 }
 
-.user-area {
+.header {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 260px;
     display: flex;
-    align-items: center;
-    gap: 12px;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 28px 22px;
+    background: #2c211a;
+    color: #fff7ed;
+}
+
+.logo {
+    color: #fff7ed;
+    font-size: 26px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.logo::after {
+    content: "Bảng công việc";
+    display: block;
+    margin-top: 8px;
+    color: #d9c4b1;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.user-area {
+    display: grid;
+    gap: 14px;
 }
 
 .user-text {
-    text-align: right;
+    text-align: left;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 247, 237, 0.2);
 }
 
 .user-name {
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 800;
 }
 
 .user-role {
     display: inline-block;
-    margin-top: 2px;
-    padding: 2px 8px;
+    margin-top: 6px;
+    padding: 3px 9px;
     border-radius: 999px;
-    background: var(--primary-soft);
-    color: var(--primary);
+    background: rgba(255, 247, 237, 0.12);
+    color: #f2d6bf;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
+}
+
+.header .btn-secondary {
+    justify-self: start;
+    border-color: rgba(255, 247, 237, 0.24);
+    background: transparent;
+    color: #fff7ed;
 }
 
 .main {
-    width: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 32px 5%;
+    width: auto;
+    max-width: none;
+    margin-left: 260px;
+    padding: 34px clamp(24px, 4vw, 56px);
 }
 
 .page-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 18px;
+    margin-bottom: 28px;
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+}
+
+.page-title h1 {
+    font-size: 32px;
 }
 
 .task-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 18px;
 }
 
 .task-card {
-    display: flex;
-    flex-direction: column;
-    min-height: 210px;
-    padding: 18px;
+    display: grid;
+    gap: 13px;
+    min-height: 220px;
+    padding: 20px;
+    background: var(--surface-strong);
+    border-radius: 18px;
 }
 
 .task-card:hover {
@@ -285,29 +346,28 @@ body {
 
 .task-meta {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .badge {
     display: inline-flex;
     align-items: center;
     border-radius: 999px;
-    padding: 4px 10px;
+    padding: 5px 10px;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .status-todo,
 .priority-low {
-    background: #f3f4f6;
-    color: #374151;
+    background: #eee6dc;
+    color: #685a4d;
 }
 
 .status-progress {
-    background: var(--primary-soft);
-    color: var(--primary);
+    background: var(--accent-soft);
+    color: var(--accent);
 }
 
 .status-done {
@@ -316,25 +376,23 @@ body {
 }
 
 .priority-medium {
-    background: #fef9c3;
-    color: #854d0e;
+    background: #fff0c9;
+    color: #8a6119;
 }
 
 .priority-high {
-    background: #ffe4e6;
-    color: #be123c;
+    background: #ffe1da;
+    color: #a4392a;
 }
 
 .task-title {
-    margin-bottom: 8px;
-    font-size: 17px;
+    font-size: 19px;
+    line-height: 1.3;
 }
 
 .task-desc {
-    flex: 1;
-    margin-bottom: 18px;
     font-size: 13px;
-    line-height: 1.55;
+    line-height: 1.62;
 }
 
 .task-footer {
@@ -344,7 +402,7 @@ body {
     gap: 10px;
     margin-top: auto;
     padding-top: 14px;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--line);
 }
 
 .deadline {
@@ -354,35 +412,38 @@ body {
 
 .actions {
     display: flex;
-    gap: 6px;
+    gap: 7px;
 }
 
 .empty-state {
     grid-column: 1 / -1;
-    padding: 44px 20px;
+    padding: 48px 24px;
     text-align: center;
+    border-radius: 18px;
 }
 
 .empty-state h2 {
-    margin-bottom: 6px;
-    font-size: 19px;
+    margin-bottom: 8px;
+    font-size: 22px;
 }
 
 .empty-state .btn {
-    margin-top: 16px;
+    margin-top: 18px;
 }
 
 .form-panel {
-    max-width: 570px;
+    max-width: 760px;
     margin: 0 auto;
-    padding: 28px;
+    padding: 30px;
+    background: var(--surface-strong);
+    border-radius: 18px;
 }
 
 .form-panel h1 {
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-    font-size: 22px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+    font-size: 28px;
 }
 
 .form-actions {
@@ -391,35 +452,82 @@ body {
     margin-top: 24px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+    .auth-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-wrapper::before {
+        min-height: 220px;
+        padding: 32px;
+        font-size: 34px;
+    }
+
+    .auth-card {
+        align-self: start;
+        margin: 24px auto;
+    }
+
     .header {
-        flex-direction: column;
-        gap: 10px;
+        position: static;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        padding: 18px 5%;
+    }
+
+    .logo::after {
+        display: none;
     }
 
     .user-area {
-        width: 100%;
-        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .user-text {
+        padding-top: 0;
+        border-top: none;
+        text-align: right;
+    }
+
+    .main {
+        margin-left: 0;
+        padding: 24px 5%;
+    }
+}
+
+@media (max-width: 640px) {
+    .auth-wrapper::before {
+        min-height: 160px;
+        font-size: 28px;
+    }
+
+    .auth-card {
+        margin: 16px;
+        padding: 24px;
+    }
+
+    .header,
+    .user-area,
+    .page-head,
+    .task-footer,
+    .form-actions {
+        align-items: stretch;
+        flex-direction: column;
     }
 
     .page-head {
-        align-items: stretch;
-        flex-direction: column;
+        display: flex;
     }
 
-    .page-head .btn {
-        width: 100%;
-    }
-
-    .form-row,
-    .task-footer {
-        grid-template-columns: 1fr;
-        flex-direction: column;
-        align-items: stretch;
-    }
-
+    .page-head .btn,
     .actions,
     .actions .btn {
         width: 100%;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
     }
 }
